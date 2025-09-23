@@ -15,6 +15,7 @@ declare global {
 }
 
 declare module '$env/static/private' {
+	export const SERVER_PORT: string;
 	export const CLIENT_ID: string;
 	export const ISSUER_URL: string;
 	export const REDIRECT_URI: string;

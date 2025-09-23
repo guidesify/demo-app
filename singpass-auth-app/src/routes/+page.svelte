@@ -61,12 +61,19 @@
   <h1>Singpass Demo App</h1>
   <a href="https://docs.developer.singpass.gov.sg" target="_blank">Documentation</a>
   <p id="msg">{msg}</p>
-  <button class="btn" onclick={handleLogin} id="login" style:display={showLogin ? 'inline-flex' : 'none'}>
-    Log in with <img src="/singpass.svg" alt="Singpass" />
-  </button>
-  <button class="btn" onclick={handleLogout} id="logout" style:display={showLogout ? 'inline-flex' : 'none'}>
-    Log out
-  </button>
+  
+  <div class="button-group">
+    <button class="btn" onclick={handleLogin} id="login" style:display={showLogin ? 'inline-flex' : 'none'}>
+      Log in with <img src="/singpass.svg" alt="Singpass" />
+    </button>
+    <button class="btn" onclick={handleLogout} id="logout" style:display={showLogout ? 'inline-flex' : 'none'}>
+      Log out
+    </button>
+  </div>
+  
+  <div class="tools">
+    <a href="/keys" class="tool-link">🔑 Generate JWT Keys</a>
+  </div>
 </main>
 
 <style>
@@ -132,5 +139,35 @@ a {
 
 img {
   height: 1.5rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.tools {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.tool-link {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  color: #495057;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.tool-link:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+  color: #495057;
 }
 </style>
