@@ -50,6 +50,6 @@ export async function GET({ cookies }) {
 		if (error instanceof Error && 'status' in error && error.status === 302) {
 			throw error;
 		}
-		throw redirect(302, '/?error=login_failed');
+		return new Response('Login initiation failed', { status: 500 });
 	}
 }
