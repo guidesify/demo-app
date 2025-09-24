@@ -1,4 +1,4 @@
-import { redirect, error } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import { getOIDCClient, serverConfig } from '$lib/server-config.js';
 
 /** @type {import('./$types').PageServerLoad} */

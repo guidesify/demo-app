@@ -124,36 +124,3 @@ export async function refreshIssuerConfig() {
 // Refresh configuration every hour (matching Node.js example)
 const ONE_HOUR_IN_MS = 60 * 60 * 1000;
 setInterval(refreshIssuerConfig, ONE_HOUR_IN_MS);
-
-/**
- * Get OIDC discovery endpoint
- */
-export function getDiscoveryUrl() {
-	return `${serverConfig.ISSUER_URL}/.well-known/openid_configuration`;
-}
-
-/**
- * Generate authorization URL
- * @param {string} state - OIDC state parameter
- * @param {string} nonce - OIDC nonce parameter
- * @returns {string} Authorization URL
- */
-export function getAuthorizationUrl(state, nonce) {
-	const params = new URLSearchParams({
-		response_type: 'code',
-		client_id: serverConfig.CLIENT_ID,
-		redirect_uri: serverConfig.REDIRECT_URI,
-		scope: serverConfig.SCOPES,
-		state: state,
-		nonce: nonce
-	});
-
-	return `${serverConfig.ISSUER_URL}/oidc/authorize?${params.toString()}`;
-}
-
-/**
- * Get token endpoint URL
- */
-export function getTokenUrl() {
-	return `${serverConfig.ISSUER_URL}/oidc/token`;
-}
